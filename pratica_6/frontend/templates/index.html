@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciador de Alunos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<header>
+    <h1>Gerenciador de Alunos</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">Sobre</a>
+        <a href="/contact">Contato</a>
+    </nav>
+</header>
+
+<section>
+    <h2>Alunos cadastrados</h2>
+
+    {% if alunos %}
+        <ul>
+            {% for aluno in alunos %}
+                <li>
+                    {{ aluno.id }} - {{ aluno.nome }} - {{ aluno.email }} - {{ aluno.curso }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum aluno cadastrado ou backend indisponível.</p>
+    {% endif %}
+</section>
+</body>
+</html>
